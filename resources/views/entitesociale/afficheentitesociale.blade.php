@@ -84,7 +84,6 @@ a:hover {
       <td>{{$user ->adresse}}</td>
       <td>{{$user ->code_postal}}</td>
       <td>{{$user ->patente}}</td>
-      <td><a href="/registerEntiteSociale">Insert</a></td>
       <td><a href="/modifie/{{$user->id_entite_social}}">Modify</a></td>
       <td><a href="/deletesocial/{{$user->id_entite_social}}"id="aa">Delete</a></td>
     </tr>
@@ -93,6 +92,7 @@ a:hover {
 <br><br>
 <div style="display: flex; justify-content: center;">
   <button class="back-button" onclick="window.location.href='/';">Back</button>
+  <a href="/registerEntiteSociale">Insert</a>
 </div>
 </body>
 </html>

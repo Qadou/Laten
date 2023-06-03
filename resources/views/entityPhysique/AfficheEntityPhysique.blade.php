@@ -74,7 +74,6 @@ h1{
       <td>{{$user ->status_ep}}</td>
       <td>{{$user ->code_postal}}</td>
       <td>{{$user ->date_creation}}</td>
-      <td><a href="/registerentitephysique">Insert</a></td>
       <td><a href="/modifierPhysique/{{$user->id_entite_physique}}/{{$user->id_entite_social}}">Modify</a></td>
       <td><a href="/deletephysique/{{$user->id_entite_physique}}">Delete</a></td>
       <td><a href="/details/{{$user->id_entite_physique}}">Details</a></td>
@@ -83,6 +82,7 @@ h1{
    
  
 </table>
+<a href="/registerentitephysique">Insert</a>
 <a href="/contrats"> Contarts Active plud de Deux </a>
    <a href="/sansremise"> PAs de remise </a>
   <a href="/">  Back</a>

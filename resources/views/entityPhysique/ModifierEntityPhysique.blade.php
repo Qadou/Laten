@@ -92,7 +92,7 @@ input[type="date"]::-webkit-clear-button {
     <label for="id_entity_sociale">id_entite_physique</label>
 		<input type="number" id="id_entite_physique" name="id_entite_physique" value="{{$id_entite_physique}}"><br><br>
     @error('id_entite_physique')
-        <div class="alert alert-danger">{{ $message }}</div><br>
+        <div style="color: white;" class="alert alert-danger">{{ $message }}</div><br>
     @enderror
     <label for="list_enttitesocial"> List_entite sociale</label>
     <select name="list_enttitesocial" id="list_enttitesocial">

@@ -80,6 +80,7 @@ class entitesocialController extends Controller
             'adresse' => $adresse,
             'code_postal' => $code_postal,
         ]);
+        
     }
     //update
     public function update(Request $request)
