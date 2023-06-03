@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome Page</title>
+	<title>Laten</title>
 	<style>
   :root{
     background-color: #050b41;
@@ -16,6 +16,7 @@
   text-decoration: none;
   border-radius: 10px;
   margin: 10px;
+ 
 }
 
 .button.a {

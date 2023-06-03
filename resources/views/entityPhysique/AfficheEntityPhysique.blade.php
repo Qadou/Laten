@@ -25,8 +25,8 @@ th {
   background-color: #eee;
 }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+tr {
+  background-color: white;
 }
 
 a {

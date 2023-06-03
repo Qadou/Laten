@@ -89,7 +89,7 @@
 </head>
 
 <body>
-    <h3>Tout Les Contrats AC sont Duplication</h3>
+    <h3>All AC Contracts are Duplication</h3>
 
     <table>
 

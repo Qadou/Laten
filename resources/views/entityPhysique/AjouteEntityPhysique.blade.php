@@ -11,8 +11,12 @@
 }
 
 form {
-  margin: 0 auto;
-  width: 50%;
+  max-width: 600px;
+  margin:  auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #202123;
 }
 
 input[type="text"],

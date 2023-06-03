@@ -16,11 +16,12 @@
 h2 {
   text-align: center;
   margin: 20px 0;
+  color: white;
 }
 
 form {
   max-width: 600px;
-  margin: 0 auto;
+  margin:  auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -60,7 +61,7 @@ input[type="submit"]:hover {
   </style>
 </head>
 <body>
-	<h2>Entity Social Information</h2>
+	<h2>Update Entity Social Information</h2>
 	<form method="post" action = "/update">
     @csrf
 		<label for="id_entity_sociale">id_entity_sociale</label>

@@ -16,6 +16,7 @@
 
 h2 {
   text-align: center;
+  color: white;
 }
 
 form {
@@ -58,7 +59,7 @@ input[type="submit"]:hover {
   </style>
 </head>
 <body>
-	<h2>Entity Social Information</h2>
+	<h2>Add a New Informations</h2>
 	<form method="post" action = "/registerEntiteSociale">
     @csrf
 		<label for="id_entity_sociale">id_entity_sociale</label>

@@ -25,12 +25,13 @@ form {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: #202123;
 }
 
 label {
   display: block;
   margin-bottom: 10px;
+  color: white;
 }
 
 input[type="text"],
@@ -138,7 +139,7 @@ input[type="date"]::-webkit-clear-button {
     @error('date_de_creation')
         <div class="alert alert-danger">{{ $message }}</div><br>
     @enderror
-		<input type="submit" value="Submit">
+		<input type="submit" value="Save">
 	</form>
 
 </body>

@@ -26,13 +26,11 @@ th {
   color: white;
 }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+tr{
+  background-color: white;
 }
 
-tr:hover {
-  background-color: #ddd;
-}
+
 
 td:first-child {
   border-top-left-radius: 5px;

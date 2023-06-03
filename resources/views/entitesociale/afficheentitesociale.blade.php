@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Laten</title>
   <style>
   :root{
     background-color: #050b41;
@@ -30,8 +30,8 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-tr:hover {
-  background-color: #ddd;
+tr {
+  background-color: white;
 }
 
 a {
@@ -55,6 +55,8 @@ a:hover {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    position: fixed;
+    bottom: 20px;
   }
   .back-button:hover{
     background-color: #555;

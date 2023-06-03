@@ -26,10 +26,11 @@ th {
 h1 {
   text-align: center;
   margin-top: 30px;
+  color:white;
 }
 
-td:nth-child(odd) {
-  background-color: #f2f2f2;
+td {
+  background-color: white;
 }
 
     </style>

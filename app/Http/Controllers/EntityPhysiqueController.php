@@ -9,6 +9,7 @@ use Illuminate\View\View;
 
 class EntityPhysiqueController extends Controller
 {
+    //afficer
     public function afficher(Request $request)
     {
         $users = DB::select('select * from entitephysique ;');
@@ -41,12 +42,13 @@ class EntityPhysiqueController extends Controller
 
         return redirect('/afficheentityphysique')->with(['message' => 'User with Libelle ' . $Libelle . ' added successfully']);
     }
+    //liste ta3 entity sociale
     public function list_societe(Request $request)
     {
         $list = DB::table('entitysociale')->select("entitysociale.raison_social", "entitysociale.id_entite_social")->get();
         return view("entityPhysique.AjouteEntityPhysique", ["list_entitesociale" => $list]);
     }
-
+    //delete
     public function delete(int $id): View
     {
 
@@ -62,10 +64,7 @@ class EntityPhysiqueController extends Controller
 
         return redirect('/afficheentityphysique')->with(['message' => 'User with id ' . $id . ' deleted successfully']);
 
-        // return view('users', [
-        //     'message' => 'User with id ' . $id . ' deleted successfully',
-        //     'users' => $users
-        // ]);
+      
     }
 
     public function modify(int $id, int $ids): View
@@ -165,25 +164,12 @@ class EntityPhysiqueController extends Controller
          inner join contrat as c2 on c1.numero_contrat = c2.numero_contrat
           where c1.statut_contrat = "AC" and c2.statut_contrat = "AC" and c1.version_contrat <> c2.version_contrat 
           GROUP BY c1.id_contrat ;');
-        // $contrats = DB :: table("contrat")
-        // -> join("contrat as c1" , "contrat.numero_contrat" ,"c1.numero_contrat") ->select()
-        // -> where("c1.statut_contrat" ,"=" ,"AC")
-        // -> where("c1.version_contrat","<>","contrat.version_contrat")
-        // ->groupByRaw("id_contrat")
-        // ->havingRaw("count(c1.version_contrat)>= ?", [2])
-
-        // ->get();
+     
         return view("entityPhysique.multicontrats", ["contrats" => $contraterror]);
     }
     public function deletecontrat()
     {
-        // $deletecontrat = DB::select('SELECT c1.* FROM contrat c1 
-        // inner join contrat c2 on c1.numero_contrat = c2.numero_contrat 
-        // where c1.statut_contrat = "AC" and c2.statut_contrat = "AC" 
-        // and c1.version_contrat <> c2.version_contrat and 
-        // TIMESTAMPDIFF(DAY,c1.date_demarrage, Now()) > TIMESTAMPDIFF(DAY,c2.date_demarrage, Now()) 
-        // GROUP BY c1.id_contrat;');
-
+      
         DB::delete('DELETE c1 FROM contrat c1
     INNER JOIN contrat c2 ON c1.numero_contrat = c2.numero_contrat
     WHERE c1.statut_contrat = "AC" AND c2.statut_contrat = "AC"
@@ -207,10 +193,12 @@ class EntityPhysiqueController extends Controller
     public function contratSansRemise()
     {
         $contratsansremise = DB::select(
-            'SELECT entitephysique.id_entite_physique from entitephysique inner join contrat on entitephysique.id_entite_physique = contrat.id_entite_physique 
-            inner join article on contrat.id_contrat = article.id_contrat 
-            where contrat.type_contrat = "PREPAID" and article.remise is null 
-            group by entitephysique.id_entite_physique,contrat.id_contrat, article.id_article,entitephysique.id_entite_social
+            'SELECT entitephysique.id_entite_physique
+            FROM entitephysique
+            INNER JOIN contrat ON entitephysique.id_entite_physique = contrat.id_entite_physique
+            INNER JOIN article ON contrat.id_contrat = article.id_contrat
+            WHERE contrat.type_contrat = "PREPAID" AND article.remise IS NULL;
+            
         ;'
         );
         return view("/entityPhysique.sensremise", ["sansremise" => $contratsansremise]);
@@ -224,12 +212,19 @@ class EntityPhysiqueController extends Controller
     WHERE contrat.type_contrat = "PREPAID" AND article.remise IS NULL
     ;');
         $contratsansremise = DB::select(
-            'SELECT * from entitephysique inner join contrat on entitephysique.id_entite_physique =
-        contrat.id_entite_physique inner join article on contrat.id_contrat = article.id_contrat
-        where contrat.type_contrat = "PREPAID" and article.remise = 10
-        group by entitephysique.id_entite_physique,contrat.id_contrat, article.id_article
-        having count(article.id_article)>=1
-        ;'
+            'SELECT *
+            FROM entitephysique
+            INNER JOIN contrat ON entitephysique.id_entite_physique = contrat.id_entite_physique
+            INNER JOIN article ON contrat.id_contrat = article.id_contrat
+            WHERE contrat.type_contrat = "PREPAID" AND article.remise = 10
+            GROUP BY entitephysique.id_entite_physique, contrat.id_contrat, article.id_article,entitephysique.adresse,
+            .entitephysique.code_postal,.entitephysique.status_ep,entitephysique.date_creation,.contrat.id_entite_physique,
+            contrat.numero_contrat,contrat.statut_contrat,contrat.version_contrat,.contrat.type_contrat,contrat.frequence_facturation,contrat.date_creation,
+            contrat.date_demarrage,article.id_contrat,article.libelle,article.remise ,article.devise,article.date_creation,article.prix_facture,article.montant ,
+            entitephysique.id_entite_social, entitephysique.libelle, entitephysique.numero_client
+            HAVING COUNT(article.id_article) >= 1;
+            '
+            
         );
         return view("entityPhysique.addremise", ["addremise" => $contratsansremise]);
     }

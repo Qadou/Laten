@@ -35,6 +35,7 @@ button {
   margin: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  
 }
 
 .cancel {
@@ -46,7 +47,7 @@ button {
    </style>
 </head>
 <body>
- <h2>Vous Voulez Vraiment supprime  set societe Id : {{ $id }}</h2><br/><br/><br/><br/><br/><br/><br/><br/>
+ <h2> Do You Really Want to Remove Company Id: {{ $id }}</h2><br/><br/><br/><br/><br/><br/><br/><br/>
   
 
  <button onclick="window.location.href='http://127.0.0.1:8000/confirmdeletes/{{ $id }}';">

@@ -51,7 +51,7 @@ button:hover {
    </style>
 </head>
 <body>
- <h2>Are you sure do you want to delete Client number : {{ $id }}</h2>
+ <h2>Are you sure do you want to delete Client number : {{ $id }}</h2><br/><br/><br/><br/><br/><br/><br/><br/>
   
 
     <button onclick="window.location.href='http://127.0.0.1:8000/confirmdeletep/{{ $id }}';">

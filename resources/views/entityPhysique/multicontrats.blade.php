@@ -51,7 +51,7 @@
         }
 
         button {
-            background-color: #4CAF50;
+            background-color: #1dd3d2;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -64,16 +64,13 @@
             border-radius: 5px;
         }
 
-        button:hover {
-            background-color: #3e8e41;
-        }
 
-        button:active {
-            background-color: #367d39;
-        }
+    
 
+       
         p {
             text-align: center;
+            color: white ;
         }
 
 
@@ -89,7 +86,7 @@
 </head>
 
 <body>
-    <h3>Les contrats qui ont le status AC présent sur deux versions ou plus</h3>
+    <h3>Contracts that have AC status present on two or more versions</h3>
 
     <table>
 
@@ -122,7 +119,7 @@
     </table>
 
     <div>
-        <p>Pour laise seulemment lse derniers contrats Click sur Delete</p>
+        <p>To leave only the last contracts Click on Delete</p>
     </div>
     <div class="container">
         <div class="center">

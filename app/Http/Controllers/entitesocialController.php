@@ -13,7 +13,9 @@ class entitesocialController extends Controller
     public function afficher(Request $request)
     {
         $users = DB::select('select * from entitysociale;');
+        //error message and the header function dyal pour afficher message l clients 
         $message = $request->header('message');
+
         // ila kan message jibo affichih
         echo Session::get('message');;
 
@@ -22,7 +24,7 @@ class entitesocialController extends Controller
             'users' => $users
         ]);
     }
-    // add user
+    // add user bach knzido wahed luser fi entity sociale
     public function adduser(Request $request)
     { 
         //required
@@ -38,10 +40,10 @@ class entitesocialController extends Controller
         $code_postal = $request->input('code_postal');
         DB::insert('insert into entitysociale values (?,?, ?, ?, ?, ?)', [$id_entity_sociale ,$raison_sociale ,$numero_registre
         , $patente, $adresse, $code_postal]);
-
+            //apres laddition returner liya page da ffichage m3a message de status
         return redirect('/affiche')->with(['message' => 'User with id ' . $raison_sociale . ' added successfully']);
     }
-    // delete
+    // delete wahed luser 
     public function delete(int $id) :View { 
  
         return view("entitesociale.confirm", [
@@ -61,6 +63,7 @@ class entitesocialController extends Controller
     //modify
     public function modify(int $id): View
     {
+        //bach nstokiw data
         $user = DB::table('entitysociale')->where('id_entite_social', $id)->first();
         $id_entite_social =$user ->id_entite_social;
         $raison_sociale =  $user ->raison_social ;
@@ -68,7 +71,7 @@ class entitesocialController extends Controller
         $adresse = $user ->adresse ;
         $code_postal = $user ->code_postal;
         $patente = $user ->patente;
-
+        //formulaire 3amra
         return view("entitesociale.modifiierEntiteSocial", [
             'id_entite_social' => $id_entite_social,
             'raison_social' => $raison_sociale,
